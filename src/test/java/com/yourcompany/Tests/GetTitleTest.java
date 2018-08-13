@@ -1,6 +1,6 @@
 package com.yourcompany.Tests;
 
-import com.yourcompany.Pages.GuineaPigPage;
+import com.yourcompany.Pages.JenkinsHomePage;
 import org.openqa.selenium.InvalidElementStateException;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
@@ -14,14 +14,14 @@ import java.rmi.UnexpectedException;
  * Created by mehmetgerceker on 12/7/15.
  */
 
-public class FollowLinkTest extends TestBase {
+public class GetTitleTest extends TestBase {
 
     /**
      * Runs a simple test verifying link can be followed.
      *
      * @throws InvalidElementStateException
      */
-    @Test(dataProvider = "hardCodedBrowsers")
+    @Test(dataProvider = "hardCodedBrowsers", enabled = true)
     public void verifyLinkTest(String browser, String version, String os, Method method)
             throws MalformedURLException, InvalidElementStateException, UnexpectedException {
 
@@ -29,14 +29,12 @@ public class FollowLinkTest extends TestBase {
         this.createDriver(browser, version, os, method.getName());
         WebDriver driver = this.getWebDriver();
 
-        this.annotate("Visiting GuineaPig page...");
-        GuineaPigPage page = GuineaPigPage.visitPage(driver);
+        this.annotate("Open Jenkins page...");
+        JenkinsHomePage page = JenkinsHomePage.homePage(driver);
 
-        this.annotate("Clicking on link...");
-        page.followLink();
 
-        this.annotate("Asserting that we are on a new page...");
-        Assert.assertFalse(page.isOnPage());
+        this.annotate("Asserting that Jenkins Home Page Title...");
+        Assert.assertEquals(page.getTitle(),"Jenkins");
     }
 
 }

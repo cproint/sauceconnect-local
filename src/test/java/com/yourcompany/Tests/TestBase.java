@@ -1,9 +1,5 @@
 package com.yourcompany.Tests;
 
-import com.saucelabs.common.SauceOnDemandAuthentication;
-import com.saucelabs.common.SauceOnDemandSessionIdProvider;
-import com.saucelabs.testng.SauceOnDemandAuthenticationProvider;
-import com.saucelabs.testng.SauceOnDemandTestListener;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.CapabilityType;
@@ -12,7 +8,6 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.DataProvider;
-import org.testng.annotations.Listeners;
 
 import java.lang.reflect.Method;
 import java.net.MalformedURLException;
@@ -56,7 +51,7 @@ public class TestBase  {
                 new Object[]{"internet explorer", "11.0", "Windows 7"},
                 new Object[]{"safari", "10.0", "OS X 10.11"},
                 new Object[]{"chrome", "54.0", "OS X 10.10"},
-                new Object[]{"firefox", "latest-1", "Windows 7"},
+                new Object[]{"firefox", "latest-1", "Windows 7"}
         };
     }
 
@@ -96,6 +91,7 @@ public class TestBase  {
         capabilities.setCapability(CapabilityType.VERSION, version);
         capabilities.setCapability(CapabilityType.PLATFORM, os);
         capabilities.setCapability("name", methodName);
+        //capabilities.setCapability("tunnel-identifier", "El_Chapo_Tunnel");
 
         if (buildTag != null) {
             capabilities.setCapability("build", buildTag);
