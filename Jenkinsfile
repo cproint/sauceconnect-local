@@ -1,8 +1,5 @@
 pipeline {
-	agent {
-			label "Sauce_CI_CD_Pipeline" 
-	}
-	
+
 	tools {	
 			maven 'Maven3.5.4'
 			jdk 'java8'
