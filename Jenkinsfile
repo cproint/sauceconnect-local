@@ -4,20 +4,23 @@ pipeline {
 	}
 	
 	tools {	
-			maven "Maven3.5.4"
-			jdk "java8"
+			maven 'Maven3.5.4'
+			jdk 'java8'
 	}
 	
 	stages {
 	
-		stage { "Initialize and Compile"
+		stage ('Initialize and Compile') {
 		
 			steps { 
-					sh echo "Initializing"
-					sh cd /Users/muralitulugu/github_repos/Java-TestNG-Selenium
+					
+					sh '''
+					echo "Initializing"
+					cd /Users/muralitulugu/github_repos/Java-TestNG-Selenium
 					mvn initialize
 					mvn compile
-					echo "Java-TestNG-Selenium Initialization Job completd successfully" 			
+					echo "Java-TestNG-Selenium Initialization Job completd successfully"
+					''' 			
 			}
 			
 	        post {
@@ -30,13 +33,16 @@ pipeline {
 		
 		}
 	
-		stage { "Test"
+		stage ('Test') {
 		
 			steps { 
-					sh echo "Running Tests"
-					sh cd /Users/muralitulugu/github_repos/Java-TestNG-Selenium
+					
+					sh '''
+					echo "Running Tests"
+					cd /Users/muralitulugu/github_repos/Java-TestNG-Selenium
 					mvn test
-					echo "Java-TestNG-Selenium Running Job completd successfully" 			
+					echo "Java-TestNG-Selenium Running Job completd successfully"
+					sh ''' 			
 			}
 			
 			post {
@@ -49,13 +55,15 @@ pipeline {
 		
 		}
 					
-		stage { "Clean"
+		stage ('Clean') {
 		
 			steps { 
-					sh echo "Cleanup"
-					sh cd /Users/muralitulugu/github_repos/Java-TestNG-Selenium
+					sh '''
+					echo "Cleanup"
+					cd /Users/muralitulugu/github_repos/Java-TestNG-Selenium
 					mvn clean
-					echo "Java-TestNG-Selenium cleanup Job completd successfully" 			
+					echo "Java-TestNG-Selenium cleanup Job completd successfully"
+					sh ''' 			
 			}
 			
 			post {
