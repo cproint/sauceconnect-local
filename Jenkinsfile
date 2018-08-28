@@ -9,9 +9,6 @@ pipeline {
             }
         }
 
-    }
-    
-    stages {
         stage('Functional Tests') {
             steps {
                 sh "mvn test"
@@ -19,9 +16,6 @@ pipeline {
             }
         }
 
-    }
-    
-    stages {
         stage('Clean') {
             steps {
                 sh "mvn clean"
