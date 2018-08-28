@@ -6,13 +6,18 @@ import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.ITestResult;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 
 import java.lang.reflect.Method;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.rmi.UnexpectedException;
+
+import com.saucelabs.ci.sauceconnect.*;
+import com.saucelabs.ci.sauceconnect.AbstractSauceTunnelManager.SauceConnectException;
 
 /**
  * Simple TestNG test which demonstrates being instantiated via a DataProvider in order to supply multiple browser combinations.
@@ -23,9 +28,11 @@ public class TestBase  {
 
     public String buildTag = System.getenv("BUILD_TAG");
 
-    public String username = System.getenv("SAUCE_USERNAME");
+    public String sauceUserName = System.getenv("SAUCE_USERNAME");
 
-    public String accesskey = System.getenv("SAUCE_ACCESS_KEY");
+    public String sauceAccessKey = System.getenv("SAUCE_ACCESS_KEY");
+    
+    public String sauceTunnelOptions = System.getenv("SAUCE_TUNNEL_OPTIONS");
 
     /**
      * ThreadLocal variable which contains the  {@link WebDriver} instance which is used to perform browser interactions with.
@@ -43,6 +50,30 @@ public class TestBase  {
      * @param testMethod
      * @return Two dimensional array of objects with browser, version, and platform information
      */
+    
+    Process tunnel;
+    public SauceConnectFourManager sauceFourTunnelManager = new SauceConnectFourManager(); 
+
+    
+	@BeforeClass
+	public void startTunnel() throws SauceConnectException {
+		
+		
+				sauceFourTunnelManager.setUseLatestSauceConnect(true);		
+				tunnel = sauceFourTunnelManager.openConnection(
+				sauceUserName,      // username
+				sauceAccessKey,       // apiKey
+				 4445,           // port
+				 null,           // sauceConnectJar
+				 sauceTunnelOptions,  // Tunnel options as String
+				 null,           // printStream
+				 null,           // verboseLogging
+				 null            // sauceConnectPath
+				 );
+		System.out.println("Started Tunnel");
+	}
+    
+    
     @DataProvider(name = "hardCodedBrowsers", parallel = true)
     public static Object[][] sauceBrowserDataProvider(Method testMethod) {
         return new Object[][]{
@@ -91,7 +122,7 @@ public class TestBase  {
         capabilities.setCapability(CapabilityType.VERSION, version);
         capabilities.setCapability(CapabilityType.PLATFORM, os);
         capabilities.setCapability("name", methodName);
-        //capabilities.setCapability("tunnel-identifier", "El_Chapo_Tunnel");
+        capabilities.setCapability("tunnel-identifier", "El_Chapo_Tunnel");
 
         if (buildTag != null) {
             capabilities.setCapability("build", buildTag);
@@ -99,7 +130,7 @@ public class TestBase  {
 
         // Launch remote browser and set it as the current thread
         webDriver.set(new RemoteWebDriver(
-                new URL("https://" + username + ":" + accesskey + "@ondemand.saucelabs.com:443/wd/hub"),
+                new URL("https://" + sauceUserName + ":" + sauceAccessKey + "@ondemand.saucelabs.com:443/wd/hub"),
                 capabilities));
 
         // set current sessionId
@@ -116,9 +147,23 @@ public class TestBase  {
     public void tearDown(ITestResult result) throws Exception {
         ((JavascriptExecutor) webDriver.get()).executeScript("sauce:job-result=" + (result.isSuccess() ? "passed" : "failed"));
         webDriver.get().quit();
+        webDriver.remove();
     }
 
     protected void annotate(String text) {
         ((JavascriptExecutor) webDriver.get()).executeScript("sauce:context=" + text);
     }
+    
+	@AfterClass
+	public void stopTunnel() throws SauceConnectException {
+		
+		sauceFourTunnelManager.closeTunnelsForPlan(
+				sauceUserName,      // username (same as start tunnel)
+				sauceTunnelOptions,  // tunnelOptions (same as start tunnel)
+				  null);
+		
+		System.out.println("Stopped Tunnel");
+
+		
+	}
 }

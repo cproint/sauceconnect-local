@@ -1,6 +1,6 @@
 package com.yourcompany.Tests;
 
-import com.yourcompany.Pages.JenkinsHomePage;
+import com.yourcompany.Pages.HomePage;
 import org.openqa.selenium.InvalidElementStateException;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
@@ -14,7 +14,7 @@ import java.rmi.UnexpectedException;
  * Created by mehmetgerceker on 12/7/15.
  */
 
-public class GetTitleTest extends TestBase {
+public class HomePageTest extends TestBase {
 
     /**
      * Runs a simple test verifying link can be followed.
@@ -22,7 +22,7 @@ public class GetTitleTest extends TestBase {
      * @throws InvalidElementStateException
      */
     @Test(dataProvider = "hardCodedBrowsers", enabled = true)
-    public void verifyLinkTest(String browser, String version, String os, Method method)
+    public void verifyTitleTest(String browser, String version, String os, Method method)
             throws MalformedURLException, InvalidElementStateException, UnexpectedException {
 
         //create webdriver session
@@ -30,11 +30,27 @@ public class GetTitleTest extends TestBase {
         WebDriver driver = this.getWebDriver();
 
         this.annotate("Open Jenkins page...");
-        JenkinsHomePage page = JenkinsHomePage.homePage(driver);
+        HomePage page = HomePage.homePage(driver);
 
 
         this.annotate("Asserting that Jenkins Home Page Title...");
         Assert.assertEquals(page.getTitle(),"Jenkins");
+    }
+    
+    @Test(dataProvider = "hardCodedBrowsers", enabled = true)
+    public void verifyIsLoginTextBoxDisplayed(String browser, String version, String os, Method method)
+            throws MalformedURLException, InvalidElementStateException, UnexpectedException {
+
+        //create webdriver session
+        this.createDriver(browser, version, os, method.getName());
+        WebDriver driver = this.getWebDriver();
+
+        this.annotate("on Jenkins page...");
+        HomePage page = HomePage.homePage(driver);
+
+
+        this.annotate("Asserting that Jenkins LoginTextBox is Displayed...");       
+        Assert.assertEquals(page.isLoginTextBoxDisplayed(),true);
     }
 
 }

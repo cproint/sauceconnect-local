@@ -1,23 +1,73 @@
-node {
-    // Mark the code checkout 'stage'....
-    stage 'Checkout'
-    // Get some code from a GitHub repository
-    checkout scm
-    // Note: if this is copy and pasted into pipeline script, the following will work while the above handles branches and such
-    // git url: 'https://github.com/saucelabs-sample-test-frameworks/Java-TestNG-Selenium.git'
+pipeline {
+	agent {
+			label "Sauce_CI_CD_Pipeline" 
+	}
+	
+	tools {	
+			maven "Maven3.5.4"
+			jdk "java8"
+	}
+	
+	stages {
+	
+		stage { 'Initialize and Compile'
+		
+			steps { 
+					sh echo "Initializing"
+					sh cd ~/github_repos/Java-TestNG-Selenium
+					mvn initialize
+					mvn compile
+					echo "Java-TestNG-Selenium Initialization Job completd successfully" 			
+			}
+			
+	        post {
+					success {
+							slackSend channel: '#tech_serv_only',
+				          	color: 'good',
+				          	message: "The pipeline stage Initialize and Compile completed successfully."
+					}
+			}
+		
+		}
+	
+		stage { 'Test'
+		
+			steps { 
+					sh echo "Running Tests"
+					sh cd ~/github_repos/Java-TestNG-Selenium
+					mvn test
+					echo "Java-TestNG-Selenium Running Job completd successfully" 			
+			}
+			
+			post {
+					success {
+							slackSend channel: '#tech_serv_only',
+				          	color: 'good',
+				          	message: "The pipeline stage Test completed successfully."
+					}
+			}
+		
+		}
+					
+		stage { 'Clean'
+		
+			steps { 
+					sh echo "Cleanup"
+					sh cd ~/github_repos/Java-TestNG-Selenium
+					mvn clean
+					echo "Java-TestNG-Selenium cleanup Job completd successfully" 			
+			}
+			
+			post {
+					success {
+							slackSend channel: '#tech_serv_only',
+				          	color: 'good',
+				          	message: "The pipeline stage clean completed successfully."
+					}
+			}
+		
+		}
+	
+	}
 
-    docker.image('maven:3.3.9-jdk-7').inside {
-        stage 'Compile'
-        sh "mvn compile"
-        stage 'Test'
-        sauce('saucelabs') {
-            sauceconnect(useGeneratedTunnelIdentifier: true, verboseLogging: true) {
-                sh "mvn test"
-            }
-        }
-    }
-
-    stage 'Collect Results'
-    step([$class: 'JUnitResultArchiver', testResults: '**/target/surefire-reports/TEST-*.xml'])
-    step([$class: 'SauceOnDemandTestPublisher'])
 }
