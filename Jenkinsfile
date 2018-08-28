@@ -3,7 +3,8 @@ pipeline {
 
     stages {
         stage('Initialize and Compile') {
-            steps {
+            steps {          	
+            	withMaven(maven : 'maven_3.5.4')
                 sh "mvn initialize compile"
                 echo "The pipeline stage Initialize and Compile completed successfully."
             }
@@ -11,6 +12,7 @@ pipeline {
 
         stage('Functional Tests') {
             steps {
+               withMaven(maven : 'maven_3.5.4')            
                 sh "mvn test"
                 echo "The pipeline stage Functional Tests completed successfully."
             }
@@ -18,6 +20,7 @@ pipeline {
 
         stage('Clean') {
             steps {
+                withMaven(maven : 'maven_3.5.4')
                 sh "mvn clean"
                 echo "The pipeline stage Clean completed successfully."
             }
