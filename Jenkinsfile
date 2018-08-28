@@ -14,7 +14,7 @@ pipeline {
 		
 			steps { 
 					sh echo "Initializing"
-					sh cd ~/github_repos/Java-TestNG-Selenium
+					sh cd /Users/muralitulugu/github_repos/Java-TestNG-Selenium
 					mvn initialize
 					mvn compile
 					echo "Java-TestNG-Selenium Initialization Job completd successfully" 			
@@ -34,7 +34,7 @@ pipeline {
 		
 			steps { 
 					sh echo "Running Tests"
-					sh cd ~/github_repos/Java-TestNG-Selenium
+					sh cd /Users/muralitulugu/github_repos/Java-TestNG-Selenium
 					mvn test
 					echo "Java-TestNG-Selenium Running Job completd successfully" 			
 			}
@@ -53,7 +53,7 @@ pipeline {
 		
 			steps { 
 					sh echo "Cleanup"
-					sh cd ~/github_repos/Java-TestNG-Selenium
+					sh cd /Users/muralitulugu/github_repos/Java-TestNG-Selenium
 					mvn clean
 					echo "Java-TestNG-Selenium cleanup Job completd successfully" 			
 			}
