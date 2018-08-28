@@ -3,7 +3,13 @@ node {
         checkout scm
     }
 
-    stage('Clean Verify') {
-        sh 'mvn clean verify'
+    stage('Initialize and Compile') {
+        sh 'mvn initialize compile'
     }
+    
+    post {
+			success {
+	          	message: "The pipeline stage Initialize and Compile completed successfully."
+			}
+
 }    
