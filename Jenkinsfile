@@ -10,7 +10,7 @@ pipeline {
 	
 	stages {
 	
-		stage { 'Initialize and Compile'
+		stage { "Initialize and Compile"
 		
 			steps { 
 					sh echo "Initializing"
@@ -30,7 +30,7 @@ pipeline {
 		
 		}
 	
-		stage { 'Test'
+		stage { "Test"
 		
 			steps { 
 					sh echo "Running Tests"
@@ -49,7 +49,7 @@ pipeline {
 		
 		}
 					
-		stage { 'Clean'
+		stage { "Clean"
 		
 			steps { 
 					sh echo "Cleanup"
