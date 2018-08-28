@@ -5,11 +5,7 @@ node {
 
     stage('Initialize and Compile') {
         sh 'mvn initialize compile'
+        echo "The pipeline stage Initialize and Compile completed successfully."
     }
     
-    post {
-			success {
-	          	message: "The pipeline stage Initialize and Compile completed successfully."
-			}
-	}
 }    
