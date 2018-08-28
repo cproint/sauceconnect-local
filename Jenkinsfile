@@ -11,5 +11,5 @@ node {
 			success {
 	          	message: "The pipeline stage Initialize and Compile completed successfully."
 			}
-
+	}
 }    
