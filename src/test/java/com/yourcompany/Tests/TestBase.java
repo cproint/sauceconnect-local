@@ -55,7 +55,7 @@ public class TestBase  {
     public SauceConnectFourManager sauceFourTunnelManager = new SauceConnectFourManager(); 
 
     
-	@BeforeClass
+/*	@BeforeClass
 	public void startTunnel() throws SauceConnectException {
 		
 		
@@ -71,7 +71,7 @@ public class TestBase  {
 				 null            // sauceConnectPath
 				 );
 		System.out.println("Started Tunnel");
-	}
+	}*/
     
     
     @DataProvider(name = "hardCodedBrowsers", parallel = true)
@@ -154,7 +154,7 @@ public class TestBase  {
         ((JavascriptExecutor) webDriver.get()).executeScript("sauce:context=" + text);
     }
     
-	@AfterClass
+/*	@AfterClass
 	public void stopTunnel() throws SauceConnectException {
 		
 		sauceFourTunnelManager.closeTunnelsForPlan(
@@ -165,5 +165,5 @@ public class TestBase  {
 		System.out.println("Stopped Tunnel");
 
 		
-	}
+	}*/
 }
