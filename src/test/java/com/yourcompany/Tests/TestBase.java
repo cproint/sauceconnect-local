@@ -1,7 +1,9 @@
 package com.yourcompany.Tests;
 
 import org.openqa.selenium.JavascriptExecutor;
+import java.io.File;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.lift.TestContext;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
@@ -18,7 +20,8 @@ import java.rmi.UnexpectedException;
 
 import com.saucelabs.ci.sauceconnect.*;
 import com.saucelabs.ci.sauceconnect.AbstractSauceTunnelManager.SauceConnectException;
-
+import com.saucelabs.saucerest.SauceREST;
+import java.io.File;
 /**
  * Simple TestNG test which demonstrates being instantiated via a DataProvider in order to supply multiple browser combinations.
  *
@@ -29,10 +32,13 @@ public class TestBase  {
     public String buildTag = System.getenv("BUILD_TAG");
 
     public String sauceUserName = System.getenv("SAUCE_USERNAME");
-
     public String sauceAccessKey = System.getenv("SAUCE_ACCESS_KEY");
     
+
+    
     public String sauceTunnelOptions = System.getenv("SAUCE_TUNNEL_OPTIONS");
+    
+	SauceREST sauce = new SauceREST(sauceUserName, sauceAccessKey);
 
     /**
      * ThreadLocal variable which contains the  {@link WebDriver} instance which is used to perform browser interactions with.
@@ -50,12 +56,12 @@ public class TestBase  {
      * @param testMethod
      * @return Two dimensional array of objects with browser, version, and platform information
      */
-    
+/*    
     Process tunnel;
     public SauceConnectFourManager sauceFourTunnelManager = new SauceConnectFourManager(); 
 
     
-/*	@BeforeClass
+	@BeforeClass
 	public void startTunnel() throws SauceConnectException {
 		
 		
@@ -71,18 +77,23 @@ public class TestBase  {
 				 null            // sauceConnectPath
 				 );
 		System.out.println("Started Tunnel");
-	}*/
+	}
+*/
     
     
     @DataProvider(name = "hardCodedBrowsers", parallel = true)
     public static Object[][] sauceBrowserDataProvider(Method testMethod) {
         return new Object[][]{
                 new Object[]{"MicrosoftEdge", "14.14393", "Windows 10"},
-                new Object[]{"firefox", "49.0", "Windows 10"},
+                new Object[]{"firefox", "", "Windows 10"},
                 new Object[]{"internet explorer", "11.0", "Windows 7"},
                 new Object[]{"safari", "10.0", "OS X 10.11"},
-                new Object[]{"chrome", "54.0", "OS X 10.10"},
-                new Object[]{"firefox", "latest-1", "Windows 7"}
+                new Object[]{"chrome", "latest", "OS X 10.10"},
+                new Object[]{"firefox", "latest-1", "Windows 7"},
+                new Object[]{"MicrosoftEdge", "14.14393", "Windows 10"},
+                new Object[]{"firefox", "", "Windows 10"},
+                new Object[]{"internet explorer", "11.0", "Windows 7"},
+                new Object[]{"safari", "10.0", "OS X 10.11"}
         };
     }
 
@@ -113,19 +124,26 @@ public class TestBase  {
      * @return
      * @throws MalformedURLException if an error occurs parsing the url
      */
-    protected void createDriver(String browser, String version, String os, String methodName)
+    protected void createDriver(String browser, String version, String os, String methodName, String tagName)
             throws MalformedURLException, UnexpectedException {
-        DesiredCapabilities capabilities = new DesiredCapabilities();
+    	
+      DesiredCapabilities capabilities = new DesiredCapabilities();
 
         // set desired capabilities to launch appropriate browser on Sauce
         capabilities.setCapability(CapabilityType.BROWSER_NAME, browser);
         capabilities.setCapability(CapabilityType.VERSION, version);
         capabilities.setCapability(CapabilityType.PLATFORM, os);
         capabilities.setCapability("name", methodName);
-        capabilities.setCapability("tunnel-identifier", "El_Chapo_Tunnel");
+        capabilities.setCapability("tags", "someTest");
 
+        capabilities.setCapability("tunnel-identifier", "El_Chapo_Tunnel");
+        //capabilities.setCapability("parentTunnel", "muralitulugu");
+        capabilities.setCapability("public", "team");
+        //capabilities.setCapability("extendedDebugging", "true");
+        //capabilities.setCapability("videoUploadOnPass", "false");
+ 
         if (buildTag != null) {
-            capabilities.setCapability("build", buildTag);
+            capabilities.setCapability("build", buildTag);            
         }
 
         // Launch remote browser and set it as the current thread
@@ -133,9 +151,11 @@ public class TestBase  {
                 new URL("https://" + sauceUserName + ":" + sauceAccessKey + "@ondemand.saucelabs.com:443/wd/hub"),
                 capabilities));
 
+        
+       
         // set current sessionId
-        //String id = ((RemoteWebDriver) getWebDriver()).getSessionId().toString();
-        //sessionId.set(id);
+        String id = ((RemoteWebDriver) getWebDriver()).getSessionId().toString();
+        sessionId.set(id);
         
         
         
@@ -143,7 +163,7 @@ public class TestBase  {
             String message = String.format("SauceOnDemandSessionID=%1$s job-name=%2$s",
             (((RemoteWebDriver) getWebDriver()).getSessionId().toString()), methodName.getClass().getName());
             System.out.println(message);
-        
+                    
         
         
         
@@ -156,8 +176,19 @@ public class TestBase  {
      */
     @AfterMethod
     public void tearDown(ITestResult result) throws Exception {
-        ((JavascriptExecutor) webDriver.get()).executeScript("sauce:job-result=" + (result.isSuccess() ? "passed" : "failed"));
-        webDriver.get().quit();
+  //     ((JavascriptExecutor) webDriver.get()).executeScript("sauce:job-result=" + (result.isSuccess() ? "passed" : "failed"));
+        
+    	if (result.isSuccess()) {
+    		
+            sauce.jobPassed(((RemoteWebDriver) getWebDriver()).getSessionId().toString());
+
+    	} else {
+    	
+    		sauce.jobFailed(((RemoteWebDriver) getWebDriver()).getSessionId().toString());
+    	}
+    	
+
+    	webDriver.get().quit();
         webDriver.remove();
     }
 
@@ -174,7 +205,9 @@ public class TestBase  {
 				  null);
 		
 		System.out.println("Stopped Tunnel");
+       ((JavascriptExecutor) webDriver.get()).executeScript("sauce:job-result=" + (result.isSuccess() ? "passed" : "failed"));
 
 		
-	}*/
+	}
+*/
 }
