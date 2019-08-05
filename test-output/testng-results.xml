@@ -1,52 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="6" failed="0" total="6" passed="0">
+<testng-results skipped="0" failed="0" total="10" passed="10">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="18055" started-at="2018-08-23T17:18:57Z" finished-at="2018-08-23T17:19:15Z">
+  <suite name="Default suite" duration-ms="18436" started-at="2019-05-24T21:58:35Z" finished-at="2019-05-24T21:58:53Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="18055" started-at="2018-08-23T17:18:57Z" finished-at="2018-08-23T17:19:15Z">
+    <test name="Default test" duration-ms="18436" started-at="2019-05-24T21:58:35Z" finished-at="2019-05-24T21:58:53Z">
       <class name="com.yourcompany.Tests.HomePageTest">
-        <test-method status="FAIL" signature="startTunnel()[pri:0, instance:com.yourcompany.Tests.HomePageTest@70be0a2b]" name="startTunnel" is-config="true" duration-ms="0" started-at="2018-08-23T10:18:57Z" finished-at="2018-08-23T10:18:57Z">
-          <exception class="com.saucelabs.ci.sauceconnect.AbstractSauceTunnelManager$SauceConnectDidNotStartException">
-            <message>
-              <![CDATA[Error launching Sauce Connect]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[com.saucelabs.ci.sauceconnect.AbstractSauceTunnelManager$SauceConnectDidNotStartException: Error launching Sauce Connect
-	at com.saucelabs.ci.sauceconnect.AbstractSauceTunnelManager.openConnection(AbstractSauceTunnelManager.java:335)
-	at com.yourcompany.Tests.TestBase.startTunnel(TestBase.java:63)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:498)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:86)
-	at org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:514)
-	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:215)
-	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:142)
-	at org.testng.internal.TestMethodWorker.invokeBeforeClassMethods(TestMethodWorker.java:178)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
-	at org.testng.TestRunner.privateRun(TestRunner.java:782)
-	at org.testng.TestRunner.run(TestRunner.java:632)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:366)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:361)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:319)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:268)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1244)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1169)
-	at org.testng.TestNG.run(TestNG.java:1064)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-]]>
-            </full-stacktrace>
-          </exception> <!-- com.saucelabs.ci.sauceconnect.AbstractSauceTunnelManager$SauceConnectDidNotStartException -->
+        <test-method status="PASS" signature="verifyTitleTest(java.lang.String, java.lang.String, java.lang.String, java.lang.reflect.Method)[pri:0, instance:com.yourcompany.Tests.HomePageTest@e45f292]" name="verifyTitleTest" duration-ms="16855" started-at="2019-05-24T14:58:35Z" data-provider="hardCodedBrowsers" finished-at="2019-05-24T14:58:51Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[firefox]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[Windows 10]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[public void com.yourcompany.Tests.HomePageTest.verifyTitleTest(java.lang.String,java.lang.String,java.lang.String,java.lang.reflect.Method) throws java.net.MalformedURLException,org.openqa.selenium.InvalidElementStateException,java.rmi.UnexpectedException]]>
+              </value>
+            </param>
+          </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- startTunnel -->
-        <test-method status="SKIP" signature="verifyLinkTest(java.lang.String, java.lang.String, java.lang.String, java.lang.reflect.Method)[pri:0, instance:com.yourcompany.Tests.HomePageTest@70be0a2b]" name="verifyLinkTest" duration-ms="9" started-at="2018-08-23T10:19:15Z" data-provider="hardCodedBrowsers" finished-at="2018-08-23T10:19:15Z">
+        </test-method> <!-- verifyTitleTest -->
+        <test-method status="PASS" signature="verifyTitleTest(java.lang.String, java.lang.String, java.lang.String, java.lang.reflect.Method)[pri:0, instance:com.yourcompany.Tests.HomePageTest@e45f292]" name="verifyTitleTest" duration-ms="12576" started-at="2019-05-24T14:58:35Z" data-provider="hardCodedBrowsers" finished-at="2019-05-24T14:58:47Z">
           <params>
             <param index="0">
               <value>
@@ -65,14 +52,40 @@
             </param>
             <param index="3">
               <value>
-                <![CDATA[public void com.yourcompany.Tests.HomePageTest.verifyLinkTest(java.lang.String,java.lang.String,java.lang.String,java.lang.reflect.Method) throws java.net.MalformedURLException,org.openqa.selenium.InvalidElementStateException,java.rmi.UnexpectedException]]>
+                <![CDATA[public void com.yourcompany.Tests.HomePageTest.verifyTitleTest(java.lang.String,java.lang.String,java.lang.String,java.lang.reflect.Method) throws java.net.MalformedURLException,org.openqa.selenium.InvalidElementStateException,java.rmi.UnexpectedException]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- verifyLinkTest -->
-        <test-method status="SKIP" signature="verifyLinkTest(java.lang.String, java.lang.String, java.lang.String, java.lang.reflect.Method)[pri:0, instance:com.yourcompany.Tests.HomePageTest@70be0a2b]" name="verifyLinkTest" duration-ms="7" started-at="2018-08-23T10:19:15Z" data-provider="hardCodedBrowsers" finished-at="2018-08-23T10:19:15Z">
+        </test-method> <!-- verifyTitleTest -->
+        <test-method status="PASS" signature="verifyTitleTest(java.lang.String, java.lang.String, java.lang.String, java.lang.reflect.Method)[pri:0, instance:com.yourcompany.Tests.HomePageTest@e45f292]" name="verifyTitleTest" duration-ms="7842" started-at="2019-05-24T14:58:35Z" data-provider="hardCodedBrowsers" finished-at="2019-05-24T14:58:42Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[latest]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[OS X 10.10]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[public void com.yourcompany.Tests.HomePageTest.verifyTitleTest(java.lang.String,java.lang.String,java.lang.String,java.lang.reflect.Method) throws java.net.MalformedURLException,org.openqa.selenium.InvalidElementStateException,java.rmi.UnexpectedException]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyTitleTest -->
+        <test-method status="PASS" signature="verifyTitleTest(java.lang.String, java.lang.String, java.lang.String, java.lang.reflect.Method)[pri:0, instance:com.yourcompany.Tests.HomePageTest@e45f292]" name="verifyTitleTest" duration-ms="10602" started-at="2019-05-24T14:58:35Z" data-provider="hardCodedBrowsers" finished-at="2019-05-24T14:58:45Z">
           <params>
             <param index="0">
               <value>
@@ -91,92 +104,14 @@
             </param>
             <param index="3">
               <value>
-                <![CDATA[public void com.yourcompany.Tests.HomePageTest.verifyLinkTest(java.lang.String,java.lang.String,java.lang.String,java.lang.reflect.Method) throws java.net.MalformedURLException,org.openqa.selenium.InvalidElementStateException,java.rmi.UnexpectedException]]>
+                <![CDATA[public void com.yourcompany.Tests.HomePageTest.verifyTitleTest(java.lang.String,java.lang.String,java.lang.String,java.lang.reflect.Method) throws java.net.MalformedURLException,org.openqa.selenium.InvalidElementStateException,java.rmi.UnexpectedException]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- verifyLinkTest -->
-        <test-method status="SKIP" signature="verifyLinkTest(java.lang.String, java.lang.String, java.lang.String, java.lang.reflect.Method)[pri:0, instance:com.yourcompany.Tests.HomePageTest@70be0a2b]" name="verifyLinkTest" duration-ms="6" started-at="2018-08-23T10:19:15Z" data-provider="hardCodedBrowsers" finished-at="2018-08-23T10:19:15Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[chrome]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[54.0]]>
-              </value>
-            </param>
-            <param index="2">
-              <value>
-                <![CDATA[OS X 10.10]]>
-              </value>
-            </param>
-            <param index="3">
-              <value>
-                <![CDATA[public void com.yourcompany.Tests.HomePageTest.verifyLinkTest(java.lang.String,java.lang.String,java.lang.String,java.lang.reflect.Method) throws java.net.MalformedURLException,org.openqa.selenium.InvalidElementStateException,java.rmi.UnexpectedException]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verifyLinkTest -->
-        <test-method status="SKIP" signature="verifyLinkTest(java.lang.String, java.lang.String, java.lang.String, java.lang.reflect.Method)[pri:0, instance:com.yourcompany.Tests.HomePageTest@70be0a2b]" name="verifyLinkTest" duration-ms="8" started-at="2018-08-23T10:19:15Z" data-provider="hardCodedBrowsers" finished-at="2018-08-23T10:19:15Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[firefox]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[49.0]]>
-              </value>
-            </param>
-            <param index="2">
-              <value>
-                <![CDATA[Windows 10]]>
-              </value>
-            </param>
-            <param index="3">
-              <value>
-                <![CDATA[public void com.yourcompany.Tests.HomePageTest.verifyLinkTest(java.lang.String,java.lang.String,java.lang.String,java.lang.reflect.Method) throws java.net.MalformedURLException,org.openqa.selenium.InvalidElementStateException,java.rmi.UnexpectedException]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verifyLinkTest -->
-        <test-method status="SKIP" signature="verifyLinkTest(java.lang.String, java.lang.String, java.lang.String, java.lang.reflect.Method)[pri:0, instance:com.yourcompany.Tests.HomePageTest@70be0a2b]" name="verifyLinkTest" duration-ms="4" started-at="2018-08-23T10:19:15Z" data-provider="hardCodedBrowsers" finished-at="2018-08-23T10:19:15Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[MicrosoftEdge]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[14.14393]]>
-              </value>
-            </param>
-            <param index="2">
-              <value>
-                <![CDATA[Windows 10]]>
-              </value>
-            </param>
-            <param index="3">
-              <value>
-                <![CDATA[public void com.yourcompany.Tests.HomePageTest.verifyLinkTest(java.lang.String,java.lang.String,java.lang.String,java.lang.reflect.Method) throws java.net.MalformedURLException,org.openqa.selenium.InvalidElementStateException,java.rmi.UnexpectedException]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verifyLinkTest -->
-        <test-method status="SKIP" signature="verifyLinkTest(java.lang.String, java.lang.String, java.lang.String, java.lang.reflect.Method)[pri:0, instance:com.yourcompany.Tests.HomePageTest@70be0a2b]" name="verifyLinkTest" duration-ms="4" started-at="2018-08-23T10:19:15Z" data-provider="hardCodedBrowsers" finished-at="2018-08-23T10:19:15Z">
+        </test-method> <!-- verifyTitleTest -->
+        <test-method status="PASS" signature="verifyTitleTest(java.lang.String, java.lang.String, java.lang.String, java.lang.reflect.Method)[pri:0, instance:com.yourcompany.Tests.HomePageTest@e45f292]" name="verifyTitleTest" duration-ms="11286" started-at="2019-05-24T14:58:35Z" data-provider="hardCodedBrowsers" finished-at="2019-05-24T14:58:46Z">
           <params>
             <param index="0">
               <value>
@@ -195,41 +130,253 @@
             </param>
             <param index="3">
               <value>
-                <![CDATA[public void com.yourcompany.Tests.HomePageTest.verifyLinkTest(java.lang.String,java.lang.String,java.lang.String,java.lang.reflect.Method) throws java.net.MalformedURLException,org.openqa.selenium.InvalidElementStateException,java.rmi.UnexpectedException]]>
+                <![CDATA[public void com.yourcompany.Tests.HomePageTest.verifyTitleTest(java.lang.String,java.lang.String,java.lang.String,java.lang.reflect.Method) throws java.net.MalformedURLException,org.openqa.selenium.InvalidElementStateException,java.rmi.UnexpectedException]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- verifyLinkTest -->
-        <test-method status="SKIP" signature="tearDown(org.testng.ITestResult)[pri:0, instance:com.yourcompany.Tests.HomePageTest@70be0a2b]" name="tearDown" is-config="true" duration-ms="0" started-at="2018-08-23T10:19:15Z" finished-at="2018-08-23T10:19:15Z">
+        </test-method> <!-- verifyTitleTest -->
+        <test-method status="PASS" signature="verifyTitleTest(java.lang.String, java.lang.String, java.lang.String, java.lang.reflect.Method)[pri:0, instance:com.yourcompany.Tests.HomePageTest@e45f292]" name="verifyTitleTest" duration-ms="14421" started-at="2019-05-24T14:58:35Z" data-provider="hardCodedBrowsers" finished-at="2019-05-24T14:58:49Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[firefox]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[Windows 10]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[public void com.yourcompany.Tests.HomePageTest.verifyTitleTest(java.lang.String,java.lang.String,java.lang.String,java.lang.reflect.Method) throws java.net.MalformedURLException,org.openqa.selenium.InvalidElementStateException,java.rmi.UnexpectedException]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyTitleTest -->
+        <test-method status="PASS" signature="verifyTitleTest(java.lang.String, java.lang.String, java.lang.String, java.lang.reflect.Method)[pri:0, instance:com.yourcompany.Tests.HomePageTest@e45f292]" name="verifyTitleTest" duration-ms="10138" started-at="2019-05-24T14:58:35Z" data-provider="hardCodedBrowsers" finished-at="2019-05-24T14:58:45Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[safari]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[10.0]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[OS X 10.11]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[public void com.yourcompany.Tests.HomePageTest.verifyTitleTest(java.lang.String,java.lang.String,java.lang.String,java.lang.reflect.Method) throws java.net.MalformedURLException,org.openqa.selenium.InvalidElementStateException,java.rmi.UnexpectedException]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyTitleTest -->
+        <test-method status="PASS" signature="verifyTitleTest(java.lang.String, java.lang.String, java.lang.String, java.lang.reflect.Method)[pri:0, instance:com.yourcompany.Tests.HomePageTest@e45f292]" name="verifyTitleTest" duration-ms="11081" started-at="2019-05-24T14:58:35Z" data-provider="hardCodedBrowsers" finished-at="2019-05-24T14:58:46Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[internet explorer]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[11.0]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[Windows 7]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[public void com.yourcompany.Tests.HomePageTest.verifyTitleTest(java.lang.String,java.lang.String,java.lang.String,java.lang.reflect.Method) throws java.net.MalformedURLException,org.openqa.selenium.InvalidElementStateException,java.rmi.UnexpectedException]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyTitleTest -->
+        <test-method status="PASS" signature="verifyTitleTest(java.lang.String, java.lang.String, java.lang.String, java.lang.reflect.Method)[pri:0, instance:com.yourcompany.Tests.HomePageTest@e45f292]" name="verifyTitleTest" duration-ms="18041" started-at="2019-05-24T14:58:35Z" data-provider="hardCodedBrowsers" finished-at="2019-05-24T14:58:53Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[MicrosoftEdge]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[14.14393]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[Windows 10]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[public void com.yourcompany.Tests.HomePageTest.verifyTitleTest(java.lang.String,java.lang.String,java.lang.String,java.lang.reflect.Method) throws java.net.MalformedURLException,org.openqa.selenium.InvalidElementStateException,java.rmi.UnexpectedException]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyTitleTest -->
+        <test-method status="PASS" signature="verifyTitleTest(java.lang.String, java.lang.String, java.lang.String, java.lang.reflect.Method)[pri:0, instance:com.yourcompany.Tests.HomePageTest@e45f292]" name="verifyTitleTest" duration-ms="18223" started-at="2019-05-24T14:58:35Z" data-provider="hardCodedBrowsers" finished-at="2019-05-24T14:58:53Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[MicrosoftEdge]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[14.14393]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[Windows 10]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[public void com.yourcompany.Tests.HomePageTest.verifyTitleTest(java.lang.String,java.lang.String,java.lang.String,java.lang.reflect.Method) throws java.net.MalformedURLException,org.openqa.selenium.InvalidElementStateException,java.rmi.UnexpectedException]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyTitleTest -->
+        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:com.yourcompany.Tests.HomePageTest@e45f292]" name="tearDown" is-config="true" duration-ms="347" started-at="2019-05-24T14:58:42Z" finished-at="2019-05-24T14:58:43Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=verifyTitleTest status=SUCCESS method=HomePageTest.verifyTitleTest(java.lang.String, java.lang.String, java.lang.String, java.lang.reflect.Method)[pri:0, instance:com.yourcompany.Tests.HomePageTest@e45f292] output={null}]]]>
+              </value>
+            </param>
+          </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-        <test-method status="SKIP" signature="tearDown(org.testng.ITestResult)[pri:0, instance:com.yourcompany.Tests.HomePageTest@70be0a2b]" name="tearDown" is-config="true" duration-ms="0" started-at="2018-08-23T10:19:15Z" finished-at="2018-08-23T10:19:15Z">
+        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:com.yourcompany.Tests.HomePageTest@e45f292]" name="tearDown" is-config="true" duration-ms="2252" started-at="2019-05-24T14:58:45Z" finished-at="2019-05-24T14:58:47Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=verifyTitleTest status=SUCCESS method=HomePageTest.verifyTitleTest(java.lang.String, java.lang.String, java.lang.String, java.lang.reflect.Method)[pri:0, instance:com.yourcompany.Tests.HomePageTest@e45f292] output={null}]]]>
+              </value>
+            </param>
+          </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-        <test-method status="SKIP" signature="tearDown(org.testng.ITestResult)[pri:0, instance:com.yourcompany.Tests.HomePageTest@70be0a2b]" name="tearDown" is-config="true" duration-ms="0" started-at="2018-08-23T10:19:15Z" finished-at="2018-08-23T10:19:15Z">
+        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:com.yourcompany.Tests.HomePageTest@e45f292]" name="tearDown" is-config="true" duration-ms="280" started-at="2019-05-24T14:58:45Z" finished-at="2019-05-24T14:58:45Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=verifyTitleTest status=SUCCESS method=HomePageTest.verifyTitleTest(java.lang.String, java.lang.String, java.lang.String, java.lang.reflect.Method)[pri:0, instance:com.yourcompany.Tests.HomePageTest@e45f292] output={null}]]]>
+              </value>
+            </param>
+          </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-        <test-method status="SKIP" signature="tearDown(org.testng.ITestResult)[pri:0, instance:com.yourcompany.Tests.HomePageTest@70be0a2b]" name="tearDown" is-config="true" duration-ms="0" started-at="2018-08-23T10:19:15Z" finished-at="2018-08-23T10:19:15Z">
+        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:com.yourcompany.Tests.HomePageTest@e45f292]" name="tearDown" is-config="true" duration-ms="140" started-at="2019-05-24T14:58:46Z" finished-at="2019-05-24T14:58:46Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=verifyTitleTest status=SUCCESS method=HomePageTest.verifyTitleTest(java.lang.String, java.lang.String, java.lang.String, java.lang.reflect.Method)[pri:0, instance:com.yourcompany.Tests.HomePageTest@e45f292] output={null}]]]>
+              </value>
+            </param>
+          </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-        <test-method status="SKIP" signature="tearDown(org.testng.ITestResult)[pri:0, instance:com.yourcompany.Tests.HomePageTest@70be0a2b]" name="tearDown" is-config="true" duration-ms="0" started-at="2018-08-23T10:19:15Z" finished-at="2018-08-23T10:19:15Z">
+        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:com.yourcompany.Tests.HomePageTest@e45f292]" name="tearDown" is-config="true" duration-ms="550" started-at="2019-05-24T14:58:46Z" finished-at="2019-05-24T14:58:46Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=verifyTitleTest status=SUCCESS method=HomePageTest.verifyTitleTest(java.lang.String, java.lang.String, java.lang.String, java.lang.reflect.Method)[pri:0, instance:com.yourcompany.Tests.HomePageTest@e45f292] output={null}]]]>
+              </value>
+            </param>
+          </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-        <test-method status="SKIP" signature="tearDown(org.testng.ITestResult)[pri:0, instance:com.yourcompany.Tests.HomePageTest@70be0a2b]" name="tearDown" is-config="true" duration-ms="0" started-at="2018-08-23T10:19:15Z" finished-at="2018-08-23T10:19:15Z">
+        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:com.yourcompany.Tests.HomePageTest@e45f292]" name="tearDown" is-config="true" duration-ms="199" started-at="2019-05-24T14:58:47Z" finished-at="2019-05-24T14:58:47Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=verifyTitleTest status=SUCCESS method=HomePageTest.verifyTitleTest(java.lang.String, java.lang.String, java.lang.String, java.lang.reflect.Method)[pri:0, instance:com.yourcompany.Tests.HomePageTest@e45f292] output={null}]]]>
+              </value>
+            </param>
+          </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-        <test-method status="SKIP" signature="stopTunnel()[pri:0, instance:com.yourcompany.Tests.HomePageTest@70be0a2b]" name="stopTunnel" is-config="true" duration-ms="0" started-at="2018-08-23T10:19:15Z" finished-at="2018-08-23T10:19:15Z">
+        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:com.yourcompany.Tests.HomePageTest@e45f292]" name="tearDown" is-config="true" duration-ms="291" started-at="2019-05-24T14:58:49Z" finished-at="2019-05-24T14:58:49Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=verifyTitleTest status=SUCCESS method=HomePageTest.verifyTitleTest(java.lang.String, java.lang.String, java.lang.String, java.lang.reflect.Method)[pri:0, instance:com.yourcompany.Tests.HomePageTest@e45f292] output={null}]]]>
+              </value>
+            </param>
+          </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- stopTunnel -->
+        </test-method> <!-- tearDown -->
+        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:com.yourcompany.Tests.HomePageTest@e45f292]" name="tearDown" is-config="true" duration-ms="224" started-at="2019-05-24T14:58:51Z" finished-at="2019-05-24T14:58:52Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=verifyTitleTest status=SUCCESS method=HomePageTest.verifyTitleTest(java.lang.String, java.lang.String, java.lang.String, java.lang.reflect.Method)[pri:0, instance:com.yourcompany.Tests.HomePageTest@e45f292] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:com.yourcompany.Tests.HomePageTest@e45f292]" name="tearDown" is-config="true" duration-ms="242" started-at="2019-05-24T14:58:53Z" finished-at="2019-05-24T14:58:53Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=verifyTitleTest status=SUCCESS method=HomePageTest.verifyTitleTest(java.lang.String, java.lang.String, java.lang.String, java.lang.reflect.Method)[pri:0, instance:com.yourcompany.Tests.HomePageTest@e45f292] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:com.yourcompany.Tests.HomePageTest@e45f292]" name="tearDown" is-config="true" duration-ms="195" started-at="2019-05-24T14:58:53Z" finished-at="2019-05-24T14:58:53Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=verifyTitleTest status=SUCCESS method=HomePageTest.verifyTitleTest(java.lang.String, java.lang.String, java.lang.String, java.lang.reflect.Method)[pri:0, instance:com.yourcompany.Tests.HomePageTest@e45f292] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
       </class> <!-- com.yourcompany.Tests.HomePageTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->

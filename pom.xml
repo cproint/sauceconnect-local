@@ -49,6 +49,15 @@
 			 <version>1.139</version>
 		</dependency>
 		
+<!-- https://mvnrepository.com/artifact/com.saucelabs/saucerest -->
+<dependency>
+    <groupId>com.saucelabs</groupId>
+    <artifactId>saucerest</artifactId>
+    <version>1.0.39</version>
+</dependency>
+
+  
+		
     </dependencies>
 
     <build>

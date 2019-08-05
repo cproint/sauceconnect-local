@@ -26,30 +26,30 @@ public class HomePageTest extends TestBase {
             throws MalformedURLException, InvalidElementStateException, UnexpectedException {
 
         //create webdriver session
-        this.createDriver(browser, version, os, method.getName());
-        WebDriver driver = this.getWebDriver();
+        createDriver(browser, version, os, method.getName(),"SmokeTest");
+        WebDriver driver = getWebDriver();
 
-        this.annotate("Open Jenkins page...");
+        annotate("Open Jenkins page...");
         HomePage page = HomePage.homePage(driver);
 
 
-        this.annotate("Asserting that Jenkins Home Page Title...");
+        annotate("Asserting that Jenkins Home Page Title...");
         Assert.assertEquals(page.getTitle(),"Jenkins");
     }
     
-    @Test(dataProvider = "hardCodedBrowsers", enabled = true)
+    @Test(dataProvider = "hardCodedBrowsers", enabled = false)
     public void verifyIsLoginTextBoxDisplayed(String browser, String version, String os, Method method)
             throws MalformedURLException, InvalidElementStateException, UnexpectedException {
 
         //create webdriver session
-        this.createDriver(browser, version, os, method.getName());
-        WebDriver driver = this.getWebDriver();
+        createDriver(browser, version, os, method.getName(),"RegressionTest");
+        WebDriver driver = getWebDriver();
 
-        this.annotate("on Jenkins page...");
+        annotate("on Jenkins page...");
         HomePage page = HomePage.homePage(driver);
 
 
-        this.annotate("Asserting that Jenkins LoginTextBox is Displayed...");       
+        annotate("Asserting that Jenkins LoginTextBox is Displayed...");       
         Assert.assertEquals(page.isLoginTextBoxDisplayed(),true);
     }
 
