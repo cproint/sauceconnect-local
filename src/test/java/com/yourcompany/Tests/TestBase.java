@@ -32,9 +32,9 @@ import java.io.File;
  */
 public class TestBase  {
 
-    //public String buildTag = System.getenv("BUILD_TAG");
+    public String buildTag1 = System.getenv("BUILD_TAG");
     
-    //public static String jobName = System.getenv("JOB_NAME+BUILD_NUMBER)";
+    public static String jobName = System.getenv("JOB_NAME+BUILD_NUMBER");
     public static String buildTag = System.getenv("BUILD_ID+BUILD_TAG");
 
     public String sauceUserName = System.getenv("SAUCE_USERNAME");
@@ -169,6 +169,11 @@ public class TestBase  {
             String message = String.format("SauceOnDemandSessionID=%1$s job-name=%2$s",
             (((RemoteWebDriver) getWebDriver()).getSessionId().toString()), methodName.getClass().getName());
             System.out.println(message);
+            System.out.println(buildTag1);
+            System.out.println(buildTag);
+            System.out.println(jobName);
+
+            
                     
         
         
