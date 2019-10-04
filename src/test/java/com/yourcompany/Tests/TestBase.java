@@ -1,6 +1,9 @@
 package com.yourcompany.Tests;
 
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+
 import java.io.File;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.lift.TestContext;
@@ -29,7 +32,10 @@ import java.io.File;
  */
 public class TestBase  {
 
-    public String buildTag = System.getenv("BUILD_TAG");
+    //public String buildTag = System.getenv("BUILD_TAG");
+    
+    //public static String jobName = System.getenv("JOB_NAME+BUILD_NUMBER)";
+    public static String buildTag = System.getenv("BUILD_ID+BUILD_TAG");
 
     public String sauceUserName = System.getenv("SAUCE_USERNAME");
     public String sauceAccessKey = System.getenv("SAUCE_ACCESS_KEY");
@@ -187,7 +193,13 @@ public class TestBase  {
     		sauce.jobFailed(((RemoteWebDriver) getWebDriver()).getSessionId().toString());
     	}
     	
-
+    	
+        ((JavascriptExecutor) webDriver.get()).executeScript("sauce:context=" + "Taking Screenshot");
+    	
+    	File scrFile1 = ((TakesScreenshot)webDriver.get()).getScreenshotAs(OutputType.FILE);
+    	File scrFile2 = ((TakesScreenshot)webDriver.get()).getScreenshotAs(OutputType.FILE);
+    	File scrFile3 = ((TakesScreenshot)webDriver.get()).getScreenshotAs(OutputType.FILE);
+    	
     	webDriver.get().quit();
         webDriver.remove();
     }
