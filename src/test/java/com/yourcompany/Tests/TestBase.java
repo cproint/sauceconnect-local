@@ -34,8 +34,8 @@ public class TestBase  {
 
     public String buildTag1 = System.getenv("BUILD_TAG");
     
-    public static String jobName = System.getenv("JOB_NAME+BUILD_NUMBER");
-    public static String buildTag = System.getenv("BUILD_ID+BUILD_TAG");
+    public static String jobName = System.getenv("JOB_NAME");
+    public static String buildTag = System.getenv("BUILD_ID");
 
     public String sauceUserName = System.getenv("SAUCE_USERNAME");
     public String sauceAccessKey = System.getenv("SAUCE_ACCESS_KEY");
